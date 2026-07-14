@@ -19,7 +19,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <div className="relative h-16 w-16 shrink-0 bg-white/8 border border-white/12 rounded-xl p-1.5 flex items-center justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/Asset/LOGO.png" alt="BERKAH Trip Logo" className="h-full w-full object-contain" />
+                <img src="/Asset/LOGO_BARU.png" alt="BERKAH Trip Logo" className="h-full w-full object-contain" />
               </div>
               <div className="leading-none">
                 <span className="block font-nunito font-black text-lg text-white">BERKAH Trip</span>
@@ -97,7 +97,7 @@ export default function Footer() {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-14 w-14 bg-white/8 border border-white/12 rounded-xl p-1.5 flex items-center justify-center shrink-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/Asset/LOGO.png" alt="BERKAH Trip Logo" className="h-full w-full object-contain" />
+              <img src="/Asset/LOGO_BARU.png" alt="BERKAH Trip Logo" className="h-full w-full object-contain" />
             </div>
             <div>
               <span className="block font-nunito font-black text-base text-white">BERKAH Trip</span>
