@@ -40,7 +40,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full z-50 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ${
           scrolled || !isHome
             ? "bg-[#1e3a8a]/95 backdrop-blur-xl border-b border-white/8 shadow-[0_1px_0_rgba(255,255,255,0.04)]"
             : "bg-transparent"

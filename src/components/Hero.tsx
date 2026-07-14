@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="beranda"
-      className="relative min-h-[100dvh] flex flex-col overflow-hidden bg-[#0f172a]"
+      className="relative min-h-[100svh] lg:min-h-screen flex flex-col overflow-hidden bg-[#0f172a]"
       aria-labelledby="hero-title"
     >
       {/* === BACKGROUND IMAGES (Asli tanpa grayscale filter) === */}
