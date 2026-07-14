@@ -58,7 +58,7 @@ export default function Home() {
           <Reveal>
             <div className="max-w-md mb-12">
               <span className="eyebrow">Mengapa BERKAH Trip</span>
-              <h2 className="display-md text-[var(--ink)] mt-3 font-sans">
+              <h2 className="display-md text-[var(--ink)] mt-3 font-sans font-light">
                 Standar Pelayanan Private Bromo
               </h2>
             </div>
@@ -75,9 +75,9 @@ export default function Home() {
                         <div className="w-8 h-8 rounded bg-[var(--accent-dim)] flex items-center justify-center text-[var(--ink)] mb-4">
                           <Icon className="h-4.5 w-4.5" />
                         </div>
-                        <h3 className="text-[var(--ink)] font-sans font-medium text-sm leading-snug">{h.title}</h3>
-                        <p className="text-[var(--ink-muted)] text-xs leading-relaxed mt-1">{h.body}</p>
-                        <div className="flex items-center gap-1.5 mt-4 text-[var(--ink)] text-[10px] font-medium
+                        <h3 className="text-[var(--ink)] font-sans font-light text-sm leading-snug">{h.title}</h3>
+                        <p className="text-[var(--ink-muted)] text-xs font-light leading-relaxed mt-1">{h.body}</p>
+                        <div className="flex items-center gap-1.5 mt-4 text-[var(--ink)] text-[10px] font-light
                                         group-hover:gap-2.5 transition-all duration-200">
                           <span>Selengkapnya</span>
                           <ArrowRight className="h-3 w-3" />
@@ -100,11 +100,11 @@ export default function Home() {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
               <div className="max-w-md">
                 <span className="eyebrow">Harga Transparan</span>
-                <h2 className="display-md text-[var(--ink)] mt-3 font-sans">
+                <h2 className="display-md text-[var(--ink)] mt-3 font-sans font-light">
                   Pilihan Paket Wisata
                 </h2>
               </div>
-              <p className="text-[var(--ink-muted)] text-xs max-w-xs leading-relaxed">
+              <p className="text-[var(--ink-muted)] text-xs max-w-xs font-light leading-relaxed">
                 Harga per mobil, bukan per orang. Semakin banyak teman, semakin hemat per kepala.
               </p>
             </div>
@@ -116,7 +116,7 @@ export default function Home() {
                 <div className={`bezel h-full relative ${pkg.popular ? "ring-1 ring-[var(--ink)]" : ""}`}>
                   {pkg.popular && (
                     <div className="absolute -top-2.5 left-5 z-10">
-                      <span className="text-[9px] font-semibold uppercase tracking-wider bg-[var(--ink)] text-white px-2 py-0.5 rounded">
+                      <span className="text-[9px] font-light uppercase tracking-wider bg-[var(--ink)] text-white px-2.5 py-0.5 rounded">
                         Rekomendasi
                       </span>
                     </div>
@@ -124,20 +124,20 @@ export default function Home() {
                   <div className="bezel-inner p-6 md:p-8 flex flex-col h-full card-lift bg-[var(--surface)]">
                     <div className="flex items-start justify-between mb-6">
                       <div>
-                        <span className="text-[10px] font-medium uppercase tracking-wider text-[var(--ink-faint)]">
+                        <span className="text-[10px] font-light uppercase tracking-wider text-[var(--ink-faint)]">
                           Paket
                         </span>
-                        <h3 className="text-xl font-bold text-[var(--ink)] font-sans mt-0.5">{pkg.name}</h3>
+                        <h3 className="text-xl font-light text-[var(--ink)] font-sans mt-0.5">{pkg.name}</h3>
                       </div>
                       <div className="text-right">
-                        <span className="block text-base font-bold text-[var(--ink)]">{pkg.price}</span>
-                        <span className="text-[9px] text-[var(--ink-faint)]">{pkg.per}</span>
+                        <span className="block text-base font-light text-[var(--ink)]">{pkg.price}</span>
+                        <span className="text-[9px] text-[var(--ink-faint)] font-light">{pkg.per}</span>
                       </div>
                     </div>
 
                     <ul className="flex flex-col gap-2.5 flex-grow">
                       {pkg.features.map((f) => (
-                        <li key={f} className="flex items-start gap-2 text-xs text-[var(--ink-muted)]">
+                        <li key={f} className="flex items-start gap-2 text-xs text-[var(--ink-muted)] font-light">
                           <span className="w-3.5 h-3.5 rounded bg-[var(--accent-dim)] flex items-center justify-center shrink-0 mt-0.5">
                             <svg width="6" height="5" viewBox="0 0 8 6" fill="none">
                               <path d="M1 3l2 2 4-4" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -175,7 +175,7 @@ export default function Home() {
               href="https://wa.me/6283116788444"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[var(--ink)] font-semibold text-xs px-5 py-2.5 rounded
+              className="inline-flex items-center gap-2 bg-white text-[var(--ink)] font-light text-xs px-5 py-2.5 rounded
                          transition-all hover:bg-neutral-100 shrink-0"
             >
               <span>083116788444</span>

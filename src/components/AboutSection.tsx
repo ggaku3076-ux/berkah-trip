@@ -40,7 +40,7 @@ export default function AboutSection() {
     if (serviceType === "basic") {
       return services[0];
     }
-    return services[1]; // default premium
+    return services[1];
   }, [serviceType]);
 
   const handleBookingSubmit = (e: React.FormEvent) => {
@@ -77,17 +77,17 @@ export default function AboutSection() {
     >
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="font-sans text-xs font-bold tracking-widest text-brand-orange uppercase">
-            Form Pemesanan Mudah
+          <span className="font-sans text-[10px] font-medium tracking-wider text-[var(--ink)] bg-[var(--accent-dim)] px-2 py-0.5 rounded uppercase">
+            Form Pemesanan
           </span>
           <h2 
             id="booking-title" 
-            className="text-3xl font-extrabold text-brand-dark sm:text-4xl mt-3 font-nunito"
+            className="text-2xl font-light text-brand-dark sm:text-3xl mt-3 font-sans"
           >
             Booking Private Trip Bromo
           </h2>
-          <p className="text-base text-brand-dark/70 mt-4 font-light">
-            Isi formulir di bawah ini untuk memesan paket BASIC atau PREMIUM. Kami akan mengarahkan Anda ke WhatsApp CS kami untuk detail pelunasan dan konfirmasi.
+          <p className="text-xs text-brand-dark/70 mt-2 font-light">
+            Isi formulir di bawah ini untuk memesan paket BASIC atau PREMIUM.
           </p>
         </div>
 
@@ -95,39 +95,39 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column: Form Card */}
-          <div className="lg:col-span-7 bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-sm">
+          <div className="lg:col-span-7 bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm">
             <form onSubmit={handleBookingSubmit} className="space-y-6">
               
               <div>
-                <label className="block text-sm font-bold text-brand-dark mb-2">Nama Pemesan</label>
+                <label className="block text-xs font-medium text-brand-dark mb-2">Nama Pemesan</label>
                 <input
                   type="text"
                   required
                   placeholder="Contoh: Budi Santoso"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-orange"
+                  className="w-full rounded border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-brand-dark focus:outline-none focus:border-brand-dark"
                 />
               </div>
 
               {/* Jenis Layanan Custom Radio Cards */}
               <div>
-                <label className="block text-sm font-bold text-brand-dark mb-3">Pilihan Paket Wisata</label>
+                <label className="block text-xs font-medium text-brand-dark mb-3">Pilihan Paket Wisata</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {/* Option 1: Basic */}
                   <button
                     type="button"
                     onClick={() => setServiceType("basic")}
-                    className={`flex flex-col items-start p-4 rounded-2xl border text-left transition-all ${
+                    className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
                       serviceType === "basic"
-                        ? "border-brand-orange bg-brand-cream/50 ring-2 ring-brand-orange/20"
+                        ? "border-brand-dark bg-slate-50"
                         : "border-slate-200 bg-slate-50 hover:bg-slate-100"
                     }`}
                   >
-                    <div className={`p-2 rounded-xl mb-3 ${serviceType === "basic" ? "bg-brand-orange text-white" : "bg-slate-200 text-slate-500"}`}>
-                      <Compass className="h-5 w-5" />
+                    <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
+                      <Compass className="h-4 w-4" />
                     </div>
-                    <span className="text-xs font-bold text-brand-dark">Paket BASIC</span>
+                    <span className="text-xs font-medium text-brand-dark">Paket BASIC</span>
                     <span className="text-[10px] text-slate-400 mt-1">Rp 1.750.000 / mobil</span>
                   </button>
 
@@ -135,16 +135,16 @@ export default function AboutSection() {
                   <button
                     type="button"
                     onClick={() => setServiceType("premium")}
-                    className={`flex flex-col items-start p-4 rounded-2xl border text-left transition-all ${
+                    className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
                       serviceType === "premium"
-                        ? "border-brand-orange bg-brand-cream/50 ring-2 ring-brand-orange/20"
+                        ? "border-brand-dark bg-slate-50"
                         : "border-slate-200 bg-slate-50 hover:bg-slate-100"
                     }`}
                   >
-                    <div className={`p-2 rounded-xl mb-3 ${serviceType === "premium" ? "bg-brand-orange text-white" : "bg-slate-200 text-slate-500"}`}>
-                      <Compass className="h-5 w-5 animate-pulse" />
+                    <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
+                      <Compass className="h-4 w-4" />
                     </div>
-                    <span className="text-xs font-bold text-brand-dark">Paket PREMIUM</span>
+                    <span className="text-xs font-medium text-brand-dark">Paket PREMIUM</span>
                     <span className="text-[10px] text-slate-400 mt-1">Rp 1.950.000 / mobil</span>
                   </button>
                 </div>
@@ -152,7 +152,7 @@ export default function AboutSection() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-bold text-brand-dark mb-2">Jumlah Penumpang</label>
+                  <label className="block text-xs font-medium text-brand-dark mb-2">Jumlah Penumpang</label>
                   <input
                     type="number"
                     min="1"
@@ -160,12 +160,12 @@ export default function AboutSection() {
                     required
                     value={passengers}
                     onChange={(e) => setPassengers(parseInt(e.target.value) || 1)}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-orange"
+                    className="w-full rounded border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-brand-dark focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-brand-dark mb-2">Durasi (Hari)</label>
+                  <label className="block text-xs font-medium text-brand-dark mb-2">Durasi (Hari)</label>
                   <input
                     type="number"
                     min="1"
@@ -173,30 +173,30 @@ export default function AboutSection() {
                     required
                     value={duration}
                     onChange={(e) => setDuration(e.target.value)}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-orange"
+                    className="w-full rounded border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-brand-dark focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-brand-dark mb-2">Tanggal Berangkat</label>
+                <label className="block text-xs font-medium text-brand-dark mb-2">Tanggal Berangkat</label>
                 <input
                   type="date"
                   required
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-orange"
+                  className="w-full rounded border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-brand-dark focus:outline-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitted}
-                className="w-full py-4 rounded-xl bg-brand-orange hover:bg-brand-orange-light text-white font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded bg-[var(--ink)] hover:opacity-90 text-white font-medium text-xs transition-all flex items-center justify-center gap-2"
               >
                 {isSubmitted ? (
                   <>
-                    <CheckCircle2 className="h-5 w-5" />
+                    <CheckCircle2 className="h-4 w-4" />
                     <span>Membuka WhatsApp...</span>
                   </>
                 ) : (
@@ -212,33 +212,31 @@ export default function AboutSection() {
 
           {/* Right Column: Recommendation Preview */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-brand-orange text-white p-6 md:p-8 rounded-3xl shadow-lg relative overflow-hidden">
-              <div className="absolute right-0 top-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-              
-              <span className="text-[10px] font-bold uppercase tracking-widest text-white bg-white/15 px-3 py-1 rounded-full">
+            <div className="bg-[var(--ink)] text-white p-6 md:p-8 rounded-2xl shadow-lg relative overflow-hidden">
+              <span className="text-[9px] font-medium uppercase tracking-wider text-white/50">
                 Detail Paket Anda
               </span>
 
-              <h3 className="text-2xl font-bold mt-4 font-nunito">{recommendedService.name}</h3>
-              <p className="text-xs text-white/85 mt-1 font-light">{recommendedService.description}</p>
+              <h3 className="text-lg font-light mt-3 font-sans">{recommendedService.name}</h3>
+              <p className="text-xs text-white/70 mt-1 font-light leading-relaxed">{recommendedService.description}</p>
 
               <div className="mt-6 space-y-3">
                 {recommendedService.features.map((feat, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs">
-                    <CheckCircle2 className="h-4 w-4 text-white shrink-0" />
+                  <div key={i} className="flex items-center gap-2 text-xs text-white/80 font-light">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-white shrink-0" />
                     <span>{feat}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-3xl border border-slate-200 flex gap-4 items-center">
-              <div className="h-10 w-10 bg-brand-cream border border-brand-orange/20 flex items-center justify-center text-brand-orange rounded-xl shrink-0">
-                <Award className="h-5 w-5" />
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 flex gap-4 items-center">
+              <div className="h-8 w-8 bg-slate-100 flex items-center justify-center text-brand-dark rounded shrink-0">
+                <Award className="h-4.5 w-4.5" />
               </div>
               <div className="text-left">
-                <h4 className="text-sm font-bold text-brand-dark">Garansi Pelayanan</h4>
-                <p className="text-xs text-slate-400 font-light">
+                <h4 className="text-xs font-medium text-brand-dark">Garansi Pelayanan</h4>
+                <p className="text-[10px] text-slate-400 font-light leading-relaxed">
                   Semua armada private trip terawat, bersih, ber-AC dingin, dan dikemudikan oleh driver berpengalaman di medan Bromo.
                 </p>
               </div>

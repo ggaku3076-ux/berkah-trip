@@ -11,24 +11,24 @@ export default function Hero() {
       className="relative min-h-[100dvh] flex flex-col overflow-hidden bg-[#111]"
       aria-labelledby="hero-title"
     >
-      {/* === BACKGROUND IMAGES === */}
+      {/* === BACKGROUND IMAGES (Asli tanpa grayscale filter) === */}
       <div className="absolute inset-0 hidden lg:block z-0">
         <Image
           src="/Asset/BACKGROUND SECTION 1.png"
           alt="BERKAH Trip — Gunung Bromo"
           fill priority sizes="100vw"
-          className="object-cover object-center grayscale opacity-85"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/40 to-[#111111]/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/25 to-[#111111]/30" />
       </div>
       <div className="absolute inset-0 block lg:hidden z-0">
         <Image
           src="/Asset/BACKGROUND MOBILE.png"
           alt="BERKAH Trip — Bromo Mobile"
           fill priority sizes="100vw"
-          className="object-cover object-center grayscale opacity-85"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/55 to-[#111111]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/35 to-[#111111]/40" />
       </div>
 
       {/* === CONTENT — BOTTOM LEFT ALIGNED === */}
@@ -44,7 +44,7 @@ export default function Hero() {
 
         {/* Subtext — clean and professional */}
         <p
-          className="mt-4 text-xs md:text-sm text-white/60 max-w-md leading-relaxed font-light animate-fade-up"
+          className="mt-4 text-xs md:text-sm text-white/70 max-w-md leading-relaxed font-light animate-fade-up"
           style={{ animationDelay: "200ms" }}
         >
           Trip privat sunrise Bromo dari Surabaya. Jadwal fleksibel, kendaraan terawat, dijemput dari pintu ke pintu.
@@ -75,7 +75,7 @@ export default function Hero() {
             { val: "24 Jam", label: "CS siap melayani" },
           ].map((s) => (
             <div key={s.val} className="flex flex-col">
-              <span className="text-white font-medium text-sm leading-none">{s.val}</span>
+              <span className="text-white font-light text-sm leading-none">{s.val}</span>
               <span className="text-white/40 text-[10px] mt-1 tracking-wide">{s.label}</span>
             </div>
           ))}

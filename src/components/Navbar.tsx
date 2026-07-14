@@ -42,33 +42,32 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled || !isHome
-            ? "bg-[#1a1f16]/95 backdrop-blur-xl border-b border-white/8 shadow-[0_1px_0_rgba(255,255,255,0.04)]"
+            ? "bg-[#111111]/95 backdrop-blur-xl border-b border-white/8 shadow-[0_1px_0_rgba(255,255,255,0.04)]"
             : "bg-transparent"
         }`}
       >
         <div className="mx-auto flex items-center justify-between max-w-7xl px-5 md:px-10 py-3">
 
-          {/* Logo — pojok kiri, besar & prominent */}
+          {/* Logo — TANPA card/border bezel, langsung transparan bersih */}
           <Link
             href="/"
             className="flex items-center gap-3 group"
             aria-label="BERKAH Trip — Beranda"
           >
-            <div className="relative h-14 w-14 md:h-16 md:w-16 shrink-0 flex items-center justify-center
-                            rounded-xl bg-white/8 border border-white/12 p-1.5 
-                            transition-all duration-300 group-hover:bg-white/12">
+            <div className="relative h-14 w-14 md:h-16 md:w-16 shrink-0 flex items-center justify-center bg-transparent">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/Asset/LOGO.png"
+                src="/Asset/LOGO_BARU.png"
                 alt="BERKAH Trip Logo"
-                className="h-full w-full object-contain drop-shadow-sm"
+                className="h-full w-full object-contain"
               />
             </div>
+            {/* Font tipis/light profesional sama dengan style headline */}
             <div className="flex flex-col leading-none">
-              <span className="font-nunito font-black text-base md:text-lg text-white tracking-tight">
+              <span className="font-sans font-light text-base md:text-lg text-white tracking-wide">
                 BERKAH Trip
               </span>
-              <span className="text-[10px] text-white/45 font-medium tracking-widest uppercase mt-0.5">
+              <span className="text-[9px] text-white/40 font-light tracking-widest uppercase mt-0.5">
                 Bromo Private
               </span>
             </div>
@@ -82,7 +81,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-[13px] font-semibold tracking-wide transition-colors duration-200 ${
+                  className={`text-[13px] font-light tracking-wide transition-colors duration-200 ${
                     active ? "text-white" : "text-white/55 hover:text-white/90"
                   }`}
                 >
@@ -96,21 +95,17 @@ export default function Navbar() {
           <div className="hidden md:flex">
             <Link href="/booking" className="btn-primary text-xs">
               <span>Booking Sekarang</span>
-              <span className="w-5 h-5 rounded-full bg-white/15 flex items-center justify-center">
-                <ArrowRight className="h-3 w-3" />
-              </span>
+              <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
 
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center
-                       bg-white/8 border border-white/12 text-white
-                       transition-colors duration-200 hover:bg-white/15"
+            className="md:hidden w-10 h-10 flex items-center justify-center text-white focus:outline-none"
             aria-label={isOpen ? "Tutup menu" : "Buka menu"}
           >
-            {isOpen ? <X className="h-4.5 w-4.5" /> : <Menu className="h-4.5 w-4.5" />}
+            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </header>
@@ -123,16 +118,15 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-[#1a1f16]/80 backdrop-blur-2xl z-[998] md:hidden"
+              className="fixed inset-0 bg-[#111111]/85 backdrop-blur-xl z-[998] md:hidden"
               onClick={() => setIsOpen(false)}
             />
             <motion.nav
               id="mobile-menu"
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 left-0 right-0 z-[999] md:hidden bg-[#1a1f16] border-b border-white/10 px-6 pt-24 pb-8"
+              exit={{ opacity: 0, y: -10 }}
+              className="fixed top-0 left-0 right-0 z-[999] md:hidden bg-[#111111] border-b border-white/10 px-6 pt-24 pb-8"
               aria-label="Mobile Navigation"
             >
               <div className="flex flex-col gap-1">
@@ -141,31 +135,25 @@ export default function Navbar() {
                   return (
                     <motion.div
                       key={link.name}
-                      initial={{ opacity: 0, x: -16 }}
+                      initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.05 + i * 0.04, type: "spring", stiffness: 400, damping: 30 }}
+                      transition={{ delay: i * 0.03 }}
                     >
                       <Link
                         href={link.href}
                         onClick={() => setIsOpen(false)}
-                        className={`flex items-center justify-between py-4 border-b border-white/8 text-base font-semibold transition-colors ${
-                          active ? "text-green-400" : "text-white/70 hover:text-white"
+                        className={`flex items-center justify-between py-4 border-b border-white/8 text-sm font-light tracking-wide ${
+                          active ? "text-white" : "text-white/60"
                         }`}
                       >
                         <span>{link.name}</span>
-                        {active && <span className="w-1.5 h-1.5 rounded-full bg-green-400" />}
                       </Link>
                     </motion.div>
                   );
                 })}
               </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.35 }}
-                className="mt-8"
-              >
+              <div className="mt-8">
                 <Link
                   href="/booking"
                   onClick={() => setIsOpen(false)}
@@ -173,7 +161,7 @@ export default function Navbar() {
                 >
                   Booking Sekarang
                 </Link>
-              </motion.div>
+              </div>
             </motion.nav>
           </>
         )}
