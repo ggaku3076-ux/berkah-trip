@@ -2,10 +2,10 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import { Compass, Check, ArrowRight } from "lucide-react";
+import Reveal from "@/components/Reveal";
+import { Check, ArrowRight } from "lucide-react";
 
 export default function PaketSection() {
-  // hanya paket Bromo
   const paketList = [
     {
       id: "bromo-basic",
@@ -14,13 +14,14 @@ export default function PaketSection() {
       price: 1750000,
       priceLabel: "per mobil (maks 4 tamu)",
       description:
-        "Trip privat Bromo dari Surabaya. Tidak digabung rombongan lain, jadwal fleksibel, kendaraan terawat dan berpengalaman.",
+        "Layanan private trip standar lengkap transportasi PP Surabaya & Jeep Bromo. Cocok bagi yang ingin perjalanan praktis dan bebas repot.",
       imagePath: "/Asset/BROMO.png",
       features: [
-        "Transport PP Surabaya–Bromo",
-        "Jeep Bromo 4x4",
+        "Transport PP Surabaya–Bromo (Avanza/Xenia)",
+        "Jeep Bromo 4x4 Eksklusif",
         "Tiket Masuk Bromo (TNBTS)",
-        "Driver Berpengalaman",
+        "Driver & BBM Surabaya-Bromo",
+        "Penjemputan di Hotel/Rumah/Bandara",
       ],
       isPopular: false,
     },
@@ -31,15 +32,14 @@ export default function PaketSection() {
       price: 1950000,
       priceLabel: "per mobil (maks 4 tamu)",
       description:
-        "Semua fasilitas BASIC ditambah guide lokal profesional dan dokumentasi foto profesional sebagai kenangan perjalanan.",
+        "Semua fasilitas BASIC ditambah asisten guide lokal berpengalaman dan dokumentasi foto profesional untuk mengabadikan momen terbaik Anda.",
       imagePath: "/Asset/BROMO.png",
       features: [
-        "Transport PP Surabaya–Bromo",
-        "Jeep Bromo 4x4",
-        "Tiket Masuk Bromo (TNBTS)",
-        "Driver Berpengalaman",
-        "Guide Lokal Profesional",
-        "Dokumentasi Foto Perjalanan",
+        "Semua fasilitas Paket BASIC",
+        "Guide Lokal Berpengalaman",
+        "Dokumentasi Foto Profesional",
+        "Snack Box & Air Mineral",
+        "Upgrade Armada (Innova Reborn Opsional)",
       ],
       isPopular: true,
     },
@@ -56,115 +56,97 @@ export default function PaketSection() {
   }, [searchQuery]);
 
   return (
-    <section className="py-24 bg-brand-cream">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
+    <section className="py-24 bg-[var(--canvas)] min-h-screen">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 pt-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-orange">
-            Private Trip Eksklusif
-          </span>
-          <h2 className="text-4xl font-extrabold text-brand-dark mt-2 font-nunito">
-            Paket Wisata BERKAH Trip
-          </h2>
-          <p className="text-slate-500 mt-4 text-base font-light">
-            Pilihan paket private trip Bromo yang nyaman, fleksibel, dan tidak digabung dengan rombongan lain.
-          </p>
-        </div>
-
-        {/* Search Bar */}
-        <div className="flex flex-col md:flex-row gap-4 items-center justify-between mb-12">
-          <div className="text-sm font-semibold text-slate-500">
-            Menampilkan {filteredPaket.length} Paket Wisata Pilihan
+        <Reveal>
+          <div className="max-w-xl mb-16 pt-12">
+            <span className="eyebrow">Pilihan Paket</span>
+            <h1 className="display-lg text-[var(--ink)] mt-4 font-nunito">
+              Paket Private Trip Bromo
+            </h1>
+            <p className="text-[var(--ink-muted)] mt-4 text-sm font-light leading-relaxed">
+              Pilih paket trip yang paling sesuai dengan preferensi Anda. Seluruh perjalanan bersifat privat tanpa dicampur orang lain.
+            </p>
           </div>
-        </div>
+        </Reveal>
 
         {/* Paket Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
           {filteredPaket.map((pkg, index) => (
-            <div
-              key={pkg.id}
-              className="bg-white rounded-3xl border border-slate-150 overflow-hidden shadow-sm card-hover-effect flex flex-col justify-between animate-fade-up"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Card Image Header */}
-              <div className="relative h-56 w-full bg-slate-100">
-                <Image
-                  src={pkg.imagePath}
-                  alt={pkg.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center"
-                />
-              </div>
-
-              {/* Card Top */}
-              <div className="p-6 md:p-8 flex-grow">
-                <div className="flex justify-between items-start mb-4">
-                  <span className="text-xs font-bold text-brand-orange bg-brand-cream px-3 py-1.5 rounded-full border border-brand-orange/10">
-                    {pkg.duration}
-                  </span>
-                  {pkg.isPopular && (
-                    <span className="text-xs font-bold text-white bg-brand-orange px-3 py-1.5 rounded-full">
-                      Terlaris
+            <Reveal key={pkg.id} delay={index * 100}>
+              <div className={`bezel h-full relative ${pkg.isPopular ? "ring-2 ring-[var(--accent)]/40" : ""}`}>
+                {pkg.isPopular && (
+                  <div className="absolute -top-3 left-6 z-10">
+                    <span className="text-[10px] font-black uppercase tracking-widest bg-[var(--accent)] text-white px-3 py-1 rounded-full">
+                      Paling Direkomendasikan
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
+                <div className="bezel-inner p-7 md:p-8 flex flex-col h-full card-lift">
+                  {/* Card Image Header */}
+                  <div className="relative h-48 w-full bg-[var(--surface-tint)] rounded-2xl overflow-hidden mb-6">
+                    <Image
+                      src={pkg.imagePath}
+                      alt={pkg.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-center"
+                    />
+                  </div>
 
-                <h3 className="text-xl font-bold text-brand-dark mb-3 font-nunito">{pkg.name}</h3>
-                <p className="text-sm text-slate-500 leading-relaxed mb-6 font-light">{pkg.description}</p>
-
-                {/* Features List */}
-                <div className="space-y-2.5">
-                  {pkg.features.map((feat, i) => (
-                    <div key={i} className="flex items-center gap-2 text-xs text-slate-600">
-                      <Check className="h-4 w-4 text-brand-orange shrink-0" />
-                      <span>{feat}</span>
+                  <div className="flex-grow">
+                    <div className="flex items-start justify-between mb-4">
+                      <span className="text-[10px] font-bold text-[var(--accent)] bg-[var(--accent-dim)] px-2.5 py-1 rounded-full">
+                        {pkg.duration}
+                      </span>
+                      <div className="text-right">
+                        <span className="block text-lg font-black text-[var(--amber)]">
+                          Rp {pkg.price.toLocaleString("id-ID")}
+                        </span>
+                        <span className="text-[10px] text-[var(--ink-faint)] leading-none">
+                          {pkg.priceLabel}
+                        </span>
+                      </div>
                     </div>
-                  ))}
+
+                    <h3 className="text-xl font-bold text-[var(--ink)] mb-2 font-nunito">{pkg.name}</h3>
+                    <p className="text-xs text-[var(--ink-muted)] leading-relaxed mb-6 font-light">{pkg.description}</p>
+
+                    {/* Features List */}
+                    <div className="space-y-2.5">
+                      {pkg.features.map((feat, i) => (
+                        <div key={i} className="flex items-start gap-2.5 text-xs text-[var(--ink-muted)]">
+                          <Check className="h-4 w-4 text-[var(--accent)] shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a
+                    href={`/booking?paket=${pkg.id}`}
+                    className={`btn-primary mt-8 justify-center ${!pkg.isPopular ? "bg-[var(--ink)] hover:bg-[#2d3528]" : ""}`}
+                  >
+                    <span>Pesan Paket</span>
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </a>
                 </div>
               </div>
-
-              {/* Card Footer */}
-              <div className="px-6 py-5 md:px-8 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
-                <div>
-                  <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">
-                    Mulai Dari
-                  </span>
-                  <span className="text-lg font-extrabold text-brand-dark">
-                    Rp {pkg.price.toLocaleString("id-ID")}
-                  </span>
-                  <span className="block text-[10px] text-slate-400">{pkg.priceLabel}</span>
-                </div>
-
-                <a
-                  href={`/booking?paket=${pkg.id}`}
-                  className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orange-light text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all"
-                >
-                  <span>Pesan</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </a>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        {filteredPaket.length === 0 && (
-          <div className="text-center py-20">
-            <Compass className="h-12 w-12 text-slate-300 mx-auto mb-4" />
-            <p className="text-slate-500 font-medium">Paket wisata tidak ditemukan.</p>
+        {/* Info penting */}
+        <Reveal delay={200}>
+          <div className="mt-12 bg-white/40 border border-[var(--border)] rounded-2xl p-6 max-w-4xl text-center">
+            <p className="text-xs text-[var(--ink-muted)] font-medium leading-relaxed">
+              Catatan: Harga di atas merupakan harga per unit kendaraan, bukan per kepala (maksimal 4 tamu per unit).
+              Informasikan kepada tim kami jika jumlah peserta lebih dari 4 orang untuk penyesuaian unit penjemputan.
+            </p>
           </div>
-        )}
-
-        {/* Info harga */}
-        <div className="mt-12 bg-brand-orange/5 border border-brand-orange/20 rounded-2xl p-6 text-center">
-          <p className="text-sm text-brand-dark font-semibold">
-            Harga dihitung per mobil (maksimal 4 tamu). Semakin banyak peserta, semakin hemat biaya per orang.
-          </p>
-          <p className="text-xs text-slate-500 mt-2">
-            Penjemputan dari Hotel, Bandara, atau Rumah di area Surabaya & Sidoarjo.
-          </p>
-        </div>
+        </Reveal>
 
       </div>
     </section>
