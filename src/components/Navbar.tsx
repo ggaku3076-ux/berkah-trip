@@ -42,7 +42,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           scrolled || !isHome
-            ? "bg-[#111111]/95 backdrop-blur-xl border-b border-white/8 shadow-[0_1px_0_rgba(255,255,255,0.04)]"
+            ? "bg-[#1e3a8a]/95 backdrop-blur-xl border-b border-white/8 shadow-[0_1px_0_rgba(255,255,255,0.04)]"
             : "bg-transparent"
         }`}
       >
@@ -118,7 +118,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-[#111111]/85 backdrop-blur-xl z-[998] md:hidden"
+              className="fixed inset-0 bg-[#1e3a8a]/85 backdrop-blur-xl z-[998] md:hidden"
               onClick={() => setIsOpen(false)}
             />
             <motion.nav
@@ -126,7 +126,7 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="fixed top-0 left-0 right-0 z-[999] md:hidden bg-[#111111] border-b border-white/10 px-6 pt-24 pb-8"
+              className="fixed top-0 left-0 right-0 z-[999] md:hidden bg-[#1e3a8a] border-b border-white/10 px-6 pt-24 pb-8"
               aria-label="Mobile Navigation"
             >
               <div className="flex flex-col gap-1">

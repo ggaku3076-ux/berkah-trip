@@ -49,7 +49,7 @@ export default function BromoPage() {
                   alt={galeriFoto[0].alt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 60vw"
-                  className="object-cover transition-transform duration-700 hover:scale-105 grayscale opacity-90"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/70 via-transparent to-transparent" />
@@ -78,7 +78,7 @@ export default function BromoPage() {
                       alt={foto.alt}
                       fill
                       sizes="(max-width: 1024px) 100vw, 40vw"
-                      className="object-cover transition-transform duration-700 hover:scale-105 grayscale opacity-90"
+                      className="object-cover transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/65 via-transparent to-transparent" />
                     <div className="absolute bottom-3 left-4 flex items-center gap-1.5 text-white">
@@ -101,7 +101,7 @@ export default function BromoPage() {
                 alt={galeriFoto[3].alt}
                 fill
                 sizes="100vw"
-                className="object-cover transition-transform duration-700 hover:scale-105 grayscale opacity-90"
+                className="object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/60 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-6 flex items-center gap-1.5 text-white">
@@ -134,7 +134,7 @@ export default function BromoPage() {
 
         {/* === CTA === */}
         <Reveal delay={100} className="mt-12">
-          <div className="bg-[var(--ink)] rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-white text-center md:text-left">
               <h2 className="text-xl font-light">Siap Berangkat ke Bromo?</h2>
               <p className="text-white/50 text-xs mt-1 font-light">

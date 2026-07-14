@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section
       id="beranda"
-      className="relative min-h-[100dvh] flex flex-col overflow-hidden bg-[#111]"
+      className="relative min-h-[100dvh] flex flex-col overflow-hidden bg-[#0f172a]"
       aria-labelledby="hero-title"
     >
       {/* === BACKGROUND IMAGES (Asli tanpa grayscale filter) === */}
@@ -19,7 +19,7 @@ export default function Hero() {
           fill priority sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/90 via-[#111111]/25 to-[#111111]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/92 via-[#0f172a]/30 to-[#0f172a]/35" />
       </div>
       <div className="absolute inset-0 block lg:hidden z-0">
         <Image
@@ -28,7 +28,7 @@ export default function Hero() {
           fill priority sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/95 via-[#111111]/35 to-[#111111]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/96 via-[#0f172a]/40 to-[#0f172a]/45" />
       </div>
 
       {/* === CONTENT — BOTTOM LEFT ALIGNED === */}

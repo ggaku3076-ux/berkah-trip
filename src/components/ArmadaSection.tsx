@@ -87,7 +87,11 @@ export default function ArmadaSection() {
                     fill
                     priority={index < 2}
                     sizes="(max-width: 768px) 100vw, 25vw"
-                    className="object-contain p-3 transition-transform duration-500 hover:scale-105"
+                    className={`object-contain transition-transform duration-500 hover:scale-105 ${
+                      mobil.name.toLowerCase().includes("jeep")
+                        ? "p-0 scale-135 hover:scale-140"
+                        : "p-3"
+                    }`}
                   />
                 </div>
 

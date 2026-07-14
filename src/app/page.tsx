@@ -162,8 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === SECTION 3: WA STRIP CTA === */}
-      <section className="bg-[var(--ink)] py-12 md:py-16">
+      <section className="bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] py-12 md:py-16">
         <Reveal>
           <div className="mx-auto max-w-7xl px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-white text-center md:text-left">
@@ -175,8 +174,8 @@ export default function Home() {
               href="https://wa.me/6283116788444"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[var(--ink)] font-light text-xs px-5 py-2.5 rounded
-                         transition-all hover:bg-neutral-100 shrink-0"
+              className="inline-flex items-center gap-2 bg-white text-[#1e3a8a] font-medium text-xs px-5 py-2.5 rounded
+                         transition-all hover:bg-blue-50 shrink-0"
             >
               <span>083116788444</span>
               <ArrowRight className="h-3.5 w-3.5" />

@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer
       id="kontak"
-      className="bg-[var(--ink)] text-white pt-16 md:pt-20 pb-8 border-t border-white/5"
+      className="bg-[#0f172a] text-white pt-16 md:pt-20 pb-8 border-t border-white/5"
       aria-labelledby="footer-title"
     >
       <div className="mx-auto max-w-7xl px-6 md:px-10">
