@@ -43,17 +43,55 @@ export default function PaketSection() {
       ],
       isPopular: true,
     },
+    {
+      id: "tumpak-sewu-reguler",
+      name: "Paket REGULER Trip Tumpak Sewu",
+      duration: "1 Hari (Midnight)",
+      price: 1400000,
+      priceLabel: "per mobil (maks 4 tamu)",
+      description:
+        "Perjalanan privat ke Tumpak Sewu menikmati panorama atas, Kapas Biru, dan Teras Semeru dengan layanan transportasi lengkap dari Surabaya.",
+      imagePath: "/Asset/f37558505720ad55e12fd4c52b1e3f8e.jpg",
+      features: [
+        "Transport PP Surabaya–Tumpak Sewu (Avanza/Xenia)",
+        "Tiket Masuk Wisata Tumpak Sewu",
+        "Eksplorasi Kapas Biru & Teras Semeru",
+        "Driver & BBM Surabaya-Tumpak Sewu",
+        "Penjemputan di Hotel/Rumah/Bandara/Stasiun",
+      ],
+      isPopular: false,
+    },
+    {
+      id: "tumpak-sewu-premium",
+      name: "Paket PREMIUM Trip Tumpak Sewu",
+      duration: "1 Hari (Midnight)",
+      price: 1650000,
+      priceLabel: "per mobil (maks 4 tamu)",
+      description:
+        "Seluruh layanan Paket REGULER ditambah local guide profesional untuk turun ke bawah tebing air terjun, Goa Tetes (opsional), dan dokumentasi foto group.",
+      imagePath: "/Asset/3bea83de12769c0b2f70cf4656aa7998.jpg",
+      features: [
+        "Semua fasilitas Paket REGULER",
+        "Local Guide Pendamping Berpengalaman",
+        "Akses Turun ke Bawah Air Terjun",
+        "Eksplorasi Goa Tetes (Opsional)",
+        "Dokumentasi Foto Perjalanan (Group)",
+      ],
+      isPopular: true,
+    },
   ];
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedDest, setSelectedDest] = useState<"all" | "bromo" | "tumpak-sewu">("all");
 
   const filteredPaket = useMemo(() => {
     return paketList.filter(
       (item) =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        (selectedDest === "all" || item.id.startsWith(selectedDest)) &&
+        (item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.description.toLowerCase().includes(searchQuery.toLowerCase()))
     );
-  }, [searchQuery]);
+  }, [searchQuery, selectedDest]);
 
   return (
     <section className="py-24 bg-[var(--canvas)] min-h-screen">
@@ -61,14 +99,52 @@ export default function PaketSection() {
 
         {/* Header */}
         <Reveal>
-          <div className="max-w-xl mb-12 pt-12">
+          <div className="max-w-xl mb-6 pt-12">
             <span className="eyebrow">Pilihan Paket</span>
             <h1 className="display-lg text-[var(--ink)] mt-3 font-sans font-light">
-              Paket Private Trip Bromo
+              {selectedDest === "all" && "Pilihan Paket Private Trip"}
+              {selectedDest === "bromo" && "Paket Private Trip Bromo"}
+              {selectedDest === "tumpak-sewu" && "Paket Private Trip Tumpak Sewu"}
             </h1>
             <p className="text-[var(--ink-muted)] mt-2 text-xs font-light leading-relaxed">
               Pilih paket trip yang paling sesuai dengan preferensi Anda. Seluruh perjalanan bersifat privat tanpa dicampur orang lain.
             </p>
+          </div>
+        </Reveal>
+
+        {/* Category Tabs */}
+        <Reveal delay={50}>
+          <div className="flex flex-wrap gap-2 mb-10 border-b border-[var(--border)] pb-4">
+            <button
+              onClick={() => setSelectedDest("all")}
+              className={`px-4 py-2 text-xs font-light rounded-full transition-all ${
+                selectedDest === "all"
+                  ? "bg-[var(--ink)] text-white"
+                  : "bg-transparent text-[var(--ink-muted)] hover:text-[var(--ink)]"
+              }`}
+            >
+              Semua Paket
+            </button>
+            <button
+              onClick={() => setSelectedDest("bromo")}
+              className={`px-4 py-2 text-xs font-light rounded-full transition-all ${
+                selectedDest === "bromo"
+                  ? "bg-[var(--ink)] text-white"
+                  : "bg-transparent text-[var(--ink-muted)] hover:text-[var(--ink)]"
+              }`}
+            >
+              Trip Bromo
+            </button>
+            <button
+              onClick={() => setSelectedDest("tumpak-sewu")}
+              className={`px-4 py-2 text-xs font-light rounded-full transition-all ${
+                selectedDest === "tumpak-sewu"
+                  ? "bg-[var(--ink)] text-white"
+                  : "bg-transparent text-[var(--ink-muted)] hover:text-[var(--ink)]"
+              }`}
+            >
+              Trip Tumpak Sewu
+            </button>
           </div>
         </Reveal>
 

@@ -8,10 +8,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Trip Bromo", href: "/paket" },
-  { name: "Galeri", href: "/bromo" },
+  { name: "Paket Trip", href: "/paket" },
+  { name: "Galeri Bromo", href: "/bromo" },
+  { name: "Galeri Tumpak Sewu", href: "/tumpak-sewu" },
   { name: "Armada", href: "/armada" },
-  { name: "Booking", href: "/booking" },
   { name: "Kontak", href: "/lokasi" },
 ];
 
@@ -68,7 +68,7 @@ export default function Navbar() {
                 BERKAH Trip
               </span>
               <span className="text-[9px] text-white/40 font-light tracking-widest uppercase mt-0.5">
-                Bromo Private
+                Private Trip
               </span>
             </div>
           </Link>

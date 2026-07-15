@@ -39,7 +39,7 @@ export default function Hero() {
           className="display-xl text-white max-w-2xl animate-fade-up font-light"
           style={{ animationDelay: "100ms" }}
         >
-          Bromo tanpa campur rombongan lain.
+          Private Trip Bromo & Tumpak Sewu.
         </h1>
 
         {/* Subtext — clean and professional */}
@@ -47,7 +47,7 @@ export default function Hero() {
           className="mt-4 text-xs md:text-sm text-white/70 max-w-md leading-relaxed font-light animate-fade-up"
           style={{ animationDelay: "200ms" }}
         >
-          Trip privat sunrise Bromo dari Surabaya. Jadwal fleksibel, kendaraan terawat, dijemput dari pintu ke pintu.
+          Trip privat tanpa campur rombongan lain dari Surabaya. Jadwal fleksibel, kendaraan terawat, dijemput dari pintu ke pintu.
         </p>
 
         {/* CTAs */}
@@ -60,7 +60,10 @@ export default function Hero() {
             <ArrowRight className="h-3 w-3" />
           </a>
           <Link href="/bromo" className="btn-ghost">
-            <span>Lihat Galeri Bromo</span>
+            <span>Galeri Bromo</span>
+          </Link>
+          <Link href="/tumpak-sewu" className="btn-ghost">
+            <span>Galeri Tumpak Sewu</span>
           </Link>
         </div>
 

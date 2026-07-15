@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { Users, Calendar, Award, CheckCircle2, ChevronRight, Car, Compass, Plane } from "lucide-react";
+import { useState, useMemo, useEffect } from "react";
+import { Users, Calendar, Award, CheckCircle2, ChevronRight, Compass } from "lucide-react";
 
 interface TransportService {
   id: string;
@@ -13,7 +13,7 @@ interface TransportService {
 
 export default function AboutSection() {
   const [passengers, setPassengers] = useState<number>(4);
-  const [serviceType, setServiceType] = useState<string>("paket");
+  const [serviceType, setServiceType] = useState<string>("bromo-premium");
   const [date, setDate] = useState<string>("");
   const [duration, setDuration] = useState<string>("1");
   const [clientName, setClientName] = useState<string>("");
@@ -21,36 +21,66 @@ export default function AboutSection() {
 
   const services: TransportService[] = [
     {
-      id: "basic",
+      id: "bromo-basic",
       name: "Paket BASIC Trip Bromo",
       maxCapacity: 4,
       description: "Layanan private trip standar lengkap transportasi PP Surabaya & Jeep Bromo.",
-      features: ["Transport PP Surabaya-Bromo", "Jeep Bromo 4x4", "Tiket Masuk Bromo", "Driver Profesional"],
+      features: ["Transport PP Surabaya-Bromo (Avanza/Xenia)", "Jeep Bromo 4x4 Eksklusif", "Tiket Masuk Bromo (TNBTS)", "Driver & BBM Surabaya-Bromo"],
     },
     {
-      id: "premium",
+      id: "bromo-premium",
       name: "Paket PREMIUM Trip Bromo",
       maxCapacity: 4,
       description: "Layanan premium dengan tambahan guide lokal profesional dan dokumentasi foto.",
-      features: ["Transport PP Surabaya-Bromo", "Jeep Bromo 4x4", "Tiket Masuk Bromo", "Driver", "Guide Lokal", "Dokumentasi Foto"],
+      features: ["Transport PP Surabaya-Bromo", "Jeep Bromo 4x4", "Tiket Masuk Bromo (TNBTS)", "Driver & BBM", "Guide Lokal", "Dokumentasi Foto"],
+    },
+    {
+      id: "tumpak-sewu-reguler",
+      name: "Paket REGULER Trip Tumpak Sewu",
+      maxCapacity: 4,
+      description: "Layanan private trip standar transportasi PP Surabaya, Tiket Tumpak Sewu, Kapas Biru, & Teras Semeru.",
+      features: ["Transport PP Surabaya–Tumpak Sewu", "Tiket Masuk Tumpak Sewu", "Eksplorasi Kapas Biru & Teras Semeru", "Driver & BBM Surabaya-Tumpak Sewu"],
+    },
+    {
+      id: "tumpak-sewu-premium",
+      name: "Paket PREMIUM Trip Tumpak Sewu",
+      maxCapacity: 4,
+      description: "Semua fasilitas REGULER ditambah local guide, akses ke bawah air terjun, Goa Tetes (opsional), dan dokumentasi.",
+      features: ["Semua fasilitas Paket REGULER", "Local Guide Pendamping Berpengalaman", "Akses Turun ke Bawah Air Terjun", "Eksplorasi Goa Tetes (Opsional)", "Dokumentasi Foto Perjalanan (Group)"],
     },
   ];
 
-  const recommendedService = useMemo(() => {
-    if (serviceType === "basic") {
-      return services[0];
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const paket = params.get("paket");
+      if (paket && services.some((s) => s.id === paket)) {
+        setServiceType(paket);
+      } else if (paket === "basic" || paket === "bromo-basic") {
+        setServiceType("bromo-basic");
+      } else if (paket === "premium" || paket === "bromo-premium") {
+        setServiceType("bromo-premium");
+      } else if (paket === "tumpak-sewu-reguler") {
+        setServiceType("tumpak-sewu-reguler");
+      } else if (paket === "tumpak-sewu-premium") {
+        setServiceType("tumpak-sewu-premium");
+      }
     }
-    return services[1];
-  }, [serviceType]);
+  }, []);
+
+  const recommendedService = useMemo(() => {
+    const found = services.find((s) => s.id === serviceType);
+    return found || services[1];
+  }, [serviceType, services]);
 
   const handleBookingSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!clientName.trim() || !date) return;
 
-    const typeLabel = 
-      serviceType === "basic" ? "Paket BASIC Trip Bromo" : "Paket PREMIUM Trip Bromo";
+    const found = services.find((s) => s.id === serviceType);
+    const typeLabel = found ? found.name : "Paket PREMIUM Trip Bromo";
 
-    let message = `Halo BERKAH Trip, saya ingin menanyakan ketersediaan & booking paket Bromo:\n\n`;
+    let message = `Halo BERKAH Trip, saya ingin menanyakan ketersediaan & booking paket wisata:\n\n`;
     message += `- *Nama Pemesan:* ${clientName}\n`;
     message += `- *Pilihan Paket:* ${typeLabel}\n`;
     message += `- *Jumlah Penumpang:* ${passengers} orang\n`;
@@ -84,10 +114,10 @@ export default function AboutSection() {
             id="booking-title" 
             className="text-2xl font-light text-brand-dark sm:text-3xl mt-3 font-sans"
           >
-            Booking Private Trip Bromo
+            Booking Private Trip
           </h2>
           <p className="text-xs text-brand-dark/70 mt-2 font-light">
-            Isi formulir di bawah ini untuk memesan paket BASIC atau PREMIUM.
+            Isi formulir di bawah ini untuk memesan paket Trip Bromo atau Trip Tumpak Sewu.
           </p>
         </div>
 
@@ -111,42 +141,83 @@ export default function AboutSection() {
               </div>
 
               {/* Jenis Layanan Custom Radio Cards */}
-              <div>
-                <label className="block text-xs font-medium text-brand-dark mb-3">Pilihan Paket Wisata</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {/* Option 1: Basic */}
-                  <button
-                    type="button"
-                    onClick={() => setServiceType("basic")}
-                    className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
-                      serviceType === "basic"
-                        ? "border-brand-dark bg-slate-50"
-                        : "border-slate-200 bg-slate-50 hover:bg-slate-100"
-                    }`}
-                  >
-                    <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
-                      <Compass className="h-4 w-4" />
-                    </div>
-                    <span className="text-xs font-medium text-brand-dark">Paket BASIC</span>
-                    <span className="text-[10px] text-slate-400 mt-1">Rp 1.750.000 / mobil</span>
-                  </button>
+              <div className="space-y-4">
+                <label className="block text-xs font-medium text-brand-dark mb-1">Pilihan Paket Wisata</label>
+                
+                {/* Bromo Trip Group */}
+                <div>
+                  <span className="text-[10px] uppercase font-light text-slate-400 block mb-2">Trip Bromo</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setServiceType("bromo-basic")}
+                      className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
+                        serviceType === "bromo-basic"
+                          ? "border-brand-dark bg-slate-50"
+                          : "border-slate-200 bg-slate-50 hover:bg-slate-100"
+                      }`}
+                    >
+                      <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
+                        <Compass className="h-4 w-4" />
+                      </div>
+                      <span className="text-xs font-medium text-brand-dark">Paket BASIC Bromo</span>
+                      <span className="text-[10px] text-slate-400 mt-1">Rp 1.750.000 / mobil</span>
+                    </button>
 
-                  {/* Option 2: Premium */}
-                  <button
-                    type="button"
-                    onClick={() => setServiceType("premium")}
-                    className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
-                      serviceType === "premium"
-                        ? "border-brand-dark bg-slate-50"
-                        : "border-slate-200 bg-slate-50 hover:bg-slate-100"
-                    }`}
-                  >
-                    <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
-                      <Compass className="h-4 w-4" />
-                    </div>
-                    <span className="text-xs font-medium text-brand-dark">Paket PREMIUM</span>
-                    <span className="text-[10px] text-slate-400 mt-1">Rp 1.950.000 / mobil</span>
-                  </button>
+                    <button
+                      type="button"
+                      onClick={() => setServiceType("bromo-premium")}
+                      className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
+                        serviceType === "bromo-premium"
+                          ? "border-brand-dark bg-slate-50"
+                          : "border-slate-200 bg-slate-50 hover:bg-slate-100"
+                      }`}
+                    >
+                      <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
+                        <Compass className="h-4 w-4" />
+                      </div>
+                      <span className="text-xs font-medium text-brand-dark">Paket PREMIUM Bromo</span>
+                      <span className="text-[10px] text-slate-400 mt-1">Rp 1.950.000 / mobil</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Tumpak Sewu Trip Group */}
+                <div>
+                  <span className="text-[10px] uppercase font-light text-slate-400 block mb-2">Trip Tumpak Sewu</span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={() => setServiceType("tumpak-sewu-reguler")}
+                      className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
+                        serviceType === "tumpak-sewu-reguler"
+                          ? "border-brand-dark bg-slate-50"
+                          : "border-slate-200 bg-slate-50 hover:bg-slate-100"
+                      }`}
+                    >
+                      <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
+                        <Compass className="h-4 w-4" />
+                      </div>
+                      <span className="text-xs font-medium text-brand-dark">Paket REGULER Tumpak Sewu</span>
+                      <span className="text-[10px] text-slate-400 mt-1">Rp 1.400.000 / mobil</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setServiceType("tumpak-sewu-premium")}
+                      className={`flex flex-col items-start p-4 rounded border text-left transition-all ${
+                        serviceType === "tumpak-sewu-premium"
+                          ? "border-brand-dark bg-slate-50"
+                          : "border-slate-200 bg-slate-50 hover:bg-slate-100"
+                      }`}
+                    >
+                      <div className="w-8 h-8 rounded bg-neutral-200 flex items-center justify-center mb-3">
+                        <Compass className="h-4 w-4" />
+                      </div>
+                      <span className="text-xs font-medium text-brand-dark">Paket PREMIUM Tumpak Sewu</span>
+                      <span className="text-[10px] text-slate-400 mt-1">Rp 1.650.000 / mobil</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -237,7 +308,7 @@ export default function AboutSection() {
               <div className="text-left">
                 <h4 className="text-xs font-medium text-brand-dark">Garansi Pelayanan</h4>
                 <p className="text-[10px] text-slate-400 font-light leading-relaxed">
-                  Semua armada private trip terawat, bersih, ber-AC dingin, dan dikemudikan oleh driver berpengalaman di medan Bromo.
+                  Semua armada private trip terawat, bersih, ber-AC dingin, dan dikemudikan oleh driver berpengalaman di medan perjalanan.
                 </p>
               </div>
             </div>

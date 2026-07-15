@@ -17,13 +17,13 @@ export default function Footer() {
           </div>
           <div className="leading-none">
             <span className="block font-nunito font-black text-lg text-white">BERKAH Trip</span>
-            <span className="block text-[10px] text-white/35 tracking-widest uppercase mt-1">Bromo Private</span>
+            <span className="block text-[10px] text-white/35 tracking-widest uppercase mt-1">Private Trip</span>
           </div>
         </div>
 
         {/* Short Description */}
         <p className="text-sm text-white/50 leading-relaxed max-w-md mx-auto mb-8 font-light">
-          Layanan private trip Bromo dari Surabaya & Sidoarjo yang privat, fleksibel, dan berkesan.
+          Layanan private trip Bromo & Tumpak Sewu dari Surabaya & Sidoarjo yang privat, fleksibel, dan berkesan.
         </p>
 
         {/* Info Cards Grid */}
@@ -56,8 +56,9 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 py-6 border-t border-white/8">
           {[
             ["Home", "/"],
-            ["Trip", "/paket"],
-            ["Galeri", "/bromo"],
+            ["Paket Trip", "/paket"],
+            ["Galeri Bromo", "/bromo"],
+            ["Galeri Tumpak Sewu", "/tumpak-sewu"],
             ["Armada", "/armada"],
             ["Booking", "/booking"],
             ["Kontak", "/lokasi"],

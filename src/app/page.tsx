@@ -29,19 +29,19 @@ const highlights = [
 
 const paketPreview = [
   {
-    name: "BASIC",
-    price: "Rp 1.750.000",
-    per: "per mobil · maks 4 tamu",
-    features: ["Transport PP Surabaya–Bromo", "Jeep Bromo 4x4", "Tiket Masuk TNBTS", "Driver Profesional"],
-    href: "/paket",
-    popular: false,
-  },
-  {
-    name: "PREMIUM",
+    name: "PREMIUM BROMO",
     price: "Rp 1.950.000",
     per: "per mobil · maks 4 tamu",
-    features: ["Semua fasilitas BASIC", "Guide Lokal Profesional", "Dokumentasi Foto Perjalanan"],
-    href: "/paket",
+    features: ["Transport PP Surabaya–Bromo", "Jeep Bromo 4x4", "Tiket Masuk TNBTS", "Guide Lokal & Dokumentasi"],
+    href: "/booking?paket=bromo-premium",
+    popular: true,
+  },
+  {
+    name: "PREMIUM TUMPAK SEWU",
+    price: "Rp 1.650.000",
+    per: "per mobil · maks 4 tamu",
+    features: ["Transport PP Surabaya–Tumpak Sewu", "Tiket Masuk Tumpak Sewu", "Eksplorasi Kapas Biru & Teras Semeru", "Local Guide & Dokumentasi Foto"],
+    href: "/booking?paket=tumpak-sewu-premium",
     popular: true,
   },
 ];
@@ -59,7 +59,7 @@ export default function Home() {
             <div className="max-w-md mb-12">
               <span className="eyebrow">Mengapa BERKAH Trip</span>
               <h2 className="display-md text-[var(--ink)] mt-3 font-sans font-light">
-                Standar Pelayanan Private Bromo
+                Standar Pelayanan Private Trip
               </h2>
             </div>
           </Reveal>
