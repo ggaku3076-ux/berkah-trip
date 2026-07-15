@@ -12,7 +12,7 @@ export default function PaketSection() {
       name: "Paket BASIC Trip Bromo",
       duration: "1 Hari (Midnight)",
       price: 1750000,
-      priceLabel: "per mobil (maks 4 tamu)",
+      priceLabel: "per mobil (maks 5 tamu)",
       description:
         "Layanan private trip standar lengkap transportasi PP Surabaya & Jeep Bromo. Cocok bagi yang ingin perjalanan praktis dan bebas repot.",
       imagePath: "/Asset/PAKET_BASIC.jpg",
@@ -30,7 +30,7 @@ export default function PaketSection() {
       name: "Paket PREMIUM Trip Bromo",
       duration: "1 Hari (Midnight)",
       price: 1950000,
-      priceLabel: "per mobil (maks 4 tamu)",
+      priceLabel: "per mobil (maks 5 tamu)",
       description:
         "Semua fasilitas BASIC ditambah asisten guide lokal berpengalaman dan dokumentasi foto profesional untuk mengabadikan momen terbaik Anda.",
       imagePath: "/Asset/PAKET_PREMIUM.jpg",
@@ -48,7 +48,7 @@ export default function PaketSection() {
       name: "Paket REGULER Trip Tumpak Sewu",
       duration: "1 Hari (Midnight)",
       price: 1400000,
-      priceLabel: "per mobil (maks 4 tamu)",
+      priceLabel: "per mobil (maks 5 tamu)",
       description:
         "Perjalanan privat ke Tumpak Sewu menikmati panorama atas, Kapas Biru, dan Teras Semeru dengan layanan transportasi lengkap dari Surabaya.",
       imagePath: "/Asset/f37558505720ad55e12fd4c52b1e3f8e.jpg",
@@ -66,7 +66,7 @@ export default function PaketSection() {
       name: "Paket PREMIUM Trip Tumpak Sewu",
       duration: "1 Hari (Midnight)",
       price: 1650000,
-      priceLabel: "per mobil (maks 4 tamu)",
+      priceLabel: "per mobil (maks 5 tamu)",
       description:
         "Seluruh layanan Paket REGULER ditambah local guide profesional untuk turun ke bawah tebing air terjun, Goa Tetes (opsional), dan dokumentasi foto group.",
       imagePath: "/Asset/3bea83de12769c0b2f70cf4656aa7998.jpg",
@@ -218,8 +218,8 @@ export default function PaketSection() {
         <Reveal delay={200}>
           <div className="mt-8 bg-white/40 border border-[var(--border)] rounded p-4 max-w-4xl text-center">
             <p className="text-[10px] text-[var(--ink-muted)] font-light leading-relaxed">
-              Catatan: Harga di atas merupakan harga per unit kendaraan, bukan per kepala (maksimal 4 tamu per unit).
-              Informasikan kepada tim kami jika jumlah peserta lebih dari 4 orang untuk penyesuaian unit penjemputan.
+              Catatan: Harga di atas merupakan harga per unit kendaraan, bukan per kepala (maksimal 5 tamu per unit).
+              Informasikan kepada tim kami jika jumlah peserta lebih dari 5 orang untuk penyesuaian unit penjemputan.
             </p>
           </div>
         </Reveal>

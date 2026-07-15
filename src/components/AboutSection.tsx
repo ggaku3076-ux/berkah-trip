@@ -12,7 +12,7 @@ interface TransportService {
 }
 
 export default function AboutSection() {
-  const [passengers, setPassengers] = useState<number>(4);
+  const [passengers, setPassengers] = useState<number>(5);
   const [serviceType, setServiceType] = useState<string>("bromo-premium");
   const [date, setDate] = useState<string>("");
   const [duration, setDuration] = useState<string>("1");
@@ -23,28 +23,28 @@ export default function AboutSection() {
     {
       id: "bromo-basic",
       name: "Paket BASIC Trip Bromo",
-      maxCapacity: 4,
+      maxCapacity: 5,
       description: "Layanan private trip standar lengkap transportasi PP Surabaya & Jeep Bromo.",
       features: ["Transport PP Surabaya-Bromo (Avanza/Xenia)", "Jeep Bromo 4x4 Eksklusif", "Tiket Masuk Bromo (TNBTS)", "Driver & BBM Surabaya-Bromo"],
     },
     {
       id: "bromo-premium",
       name: "Paket PREMIUM Trip Bromo",
-      maxCapacity: 4,
+      maxCapacity: 5,
       description: "Layanan premium dengan tambahan guide lokal profesional dan dokumentasi foto.",
       features: ["Transport PP Surabaya-Bromo", "Jeep Bromo 4x4", "Tiket Masuk Bromo (TNBTS)", "Driver & BBM", "Guide Lokal", "Dokumentasi Foto"],
     },
     {
       id: "tumpak-sewu-reguler",
       name: "Paket REGULER Trip Tumpak Sewu",
-      maxCapacity: 4,
+      maxCapacity: 5,
       description: "Layanan private trip standar transportasi PP Surabaya, Tiket Tumpak Sewu, Kapas Biru, & Teras Semeru.",
       features: ["Transport PP Surabaya–Tumpak Sewu", "Tiket Masuk Tumpak Sewu", "Eksplorasi Kapas Biru & Teras Semeru", "Driver & BBM Surabaya-Tumpak Sewu"],
     },
     {
       id: "tumpak-sewu-premium",
       name: "Paket PREMIUM Trip Tumpak Sewu",
-      maxCapacity: 4,
+      maxCapacity: 5,
       description: "Semua fasilitas REGULER ditambah local guide, akses ke bawah air terjun, Goa Tetes (opsional), dan dokumentasi.",
       features: ["Semua fasilitas Paket REGULER", "Local Guide Pendamping Berpengalaman", "Akses Turun ke Bawah Air Terjun", "Eksplorasi Goa Tetes (Opsional)", "Dokumentasi Foto Perjalanan (Group)"],
     },

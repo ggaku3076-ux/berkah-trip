@@ -31,7 +31,7 @@ const paketPreview = [
   {
     name: "PREMIUM BROMO",
     price: "Rp 1.950.000",
-    per: "per mobil · maks 4 tamu",
+    per: "per mobil · maks 5 tamu",
     features: ["Transport PP Surabaya–Bromo", "Jeep Bromo 4x4", "Tiket Masuk TNBTS", "Guide Lokal & Dokumentasi"],
     href: "/booking?paket=bromo-premium",
     popular: true,
@@ -39,7 +39,7 @@ const paketPreview = [
   {
     name: "PREMIUM TUMPAK SEWU",
     price: "Rp 1.650.000",
-    per: "per mobil · maks 4 tamu",
+    per: "per mobil · maks 5 tamu",
     features: ["Transport PP Surabaya–Tumpak Sewu", "Tiket Masuk Tumpak Sewu", "Eksplorasi Kapas Biru & Teras Semeru", "Local Guide & Dokumentasi Foto"],
     href: "/booking?paket=tumpak-sewu-premium",
     popular: true,
